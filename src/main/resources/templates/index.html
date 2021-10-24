@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <title>Covid Tracker</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="p-3">Covid Cases Tracking Application</h1>
+            <div class="jumbotron">
+                <h2 data-th-text="${currentDayTotalCases}"></h2>
+                <p>Total Number of Cases as of Today</p>
+                <hr class="my-4">
+                <h3 data-th-text="${totalCasesIncreasePerDay}"></h3>
+                <p>Total Number of Cases increased in a Day</p>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Country</th>
+                        <th>State</th>
+                        <th>Total Cases</th>
+                        <th>Day Increase</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-th-each="locationStat : ${locationsStat}">
+                        <td data-th-text="${locationStat.country}"></td>
+                        <td data-th-text="${locationStat.state}"></td>
+                        <td data-th-text="${locationStat.currentDayTotalCases}">0</td>
+                        <td data-th-text="${locationStat.increasedCasesInADay}">0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
